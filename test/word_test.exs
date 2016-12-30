@@ -17,4 +17,12 @@ defmodule WordTest do
   test "calculate prime-factored value from chars" do
     assert from_string("abcxyz").value == 2 * 3 * 5 * 89 * 97 * 101
   end
+
+  test "handling of duplicated characters" do
+    assert from_string("aaabbb").value == 2 * 2 * 2 * 3 * 3 * 3
+  end
+
+  test "handling of unordered characters" do
+    assert from_string("abccba").value == 2 * 3 * 5 * 5 * 3 * 2
+  end
 end
