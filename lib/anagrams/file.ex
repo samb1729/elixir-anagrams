@@ -4,6 +4,7 @@ defmodule Anagrams.File do
   def load_words(file \\ @words_file) do
     open_file(file)
     |> Stream.map(&String.trim/1)
+    |> Stream.map(&String.downcase/1)
     |> Enum.to_list
   end
 
