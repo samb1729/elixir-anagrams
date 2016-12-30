@@ -25,4 +25,22 @@ defmodule WordTest do
   test "handling of unordered characters" do
     assert from_string("abccba").value == 2 * 3 * 5 * 5 * 3 * 2
   end
+
+  test "word can be created from character list" do
+    charlist = from_string("abchelloxyztst")
+    hello = from_string("hello")
+    test = from_string("test")
+
+    assert is_anagram?(hello, charlist)
+    assert is_anagram?(test, charlist)
+  end
+
+  test "word cannot be created from character list" do
+    charlist = from_string("abchelloxyztst")
+    helloo = from_string("helloo")
+    testt = from_string("testt")
+
+    assert is_anagram?(helloo, charlist) == false
+    assert is_anagram?(testt, charlist) == false
+  end
 end

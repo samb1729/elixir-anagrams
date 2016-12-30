@@ -25,4 +25,8 @@ defmodule Anagrams.Word do
     @primes
     |> Enum.at(char - ?a)
   end
+
+  def is_anagram?(word, charlist) do
+    rem(charlist.value, word.value) == 0
+  end
 end
