@@ -2,3 +2,4 @@ a
 LIST
 of
 WORDS
+foo-bar
