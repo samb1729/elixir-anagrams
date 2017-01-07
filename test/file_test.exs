@@ -12,7 +12,7 @@ defmodule FileTest do
   end
 
   test "loads default words" do
-    assert is_list(load_words)
+    assert is_list(load_words())
   end
 
   test "loads test.txt words" do
