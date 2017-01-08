@@ -8,4 +8,4 @@ Takes a dictionary and a character-list and spits out all words in the dictionar
 
 ## Running tests
 
-`$ mix test --no-start`
+`$ mix test` or `$ mix coveralls` or `$ mix coveralls.html`
