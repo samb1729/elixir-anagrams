@@ -1,4 +1,4 @@
-defmodule WordTest do
+defmodule Anagrams.WordTest do
   use ExUnit.Case, async: true
   alias Anagrams.Word
 

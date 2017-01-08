@@ -1,4 +1,4 @@
-defmodule WorkerTest do
+defmodule Anagrams.WorkerTest do
   use ExUnit.Case, async: true
   alias Anagrams.Worker
   alias Anagrams.WordAgent

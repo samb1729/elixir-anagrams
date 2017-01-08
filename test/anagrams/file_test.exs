@@ -1,4 +1,4 @@
-defmodule FileTest do
+defmodule Anagrams.FileTest do
   use ExUnit.Case, async: true
   alias Anagrams.File
 
