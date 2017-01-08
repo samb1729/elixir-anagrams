@@ -4,7 +4,7 @@ Takes a dictionary and a character-list and spits out all words in the dictionar
 
 ## Usage
 
-**TODO: usage
+`$ mix run cli.exs` (Exit with ctrl-c)
 
 ## Running tests
 
