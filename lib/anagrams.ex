@@ -1,19 +1,23 @@
 defmodule Anagrams do
   use Application
+  alias Anagrams.{File, Registry, Worker, WordAgent}
 
-  # See http://elixir-lang.org/docs/stable/elixir/Application.html
-  # for more information on OTP Applications
+  @length_range 2..9
+
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
 
-    # Define workers and child supervisors to be supervised
-    children = [
-      # Starts a worker by calling: Anagrams.Worker.start_link(arg1, arg2, arg3)
-      # worker(Anagrams.Worker, [arg1, arg2, arg3]),
-    ]
+    word_agent = worker(WordAgent, [fn -> File.load_words end, [name: WordAgent]])
+    workers = Enum.map(@length_range, fn n ->
+      name = Registry.worker_name(n)
+      worker(Worker, [%{length: n}, [name: name]], id: n)
+    end)
 
-    # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
-    # for other strategies and supported options
+    worker_names = @length_range |> Enum.map(&Registry.worker_name/1)
+    registry = worker(Registry, [worker_names, [name: Registry]])
+
+    children = [word_agent, registry] ++ workers
+
     opts = [strategy: :one_for_one, name: Anagrams.Supervisor]
     Supervisor.start_link(children, opts)
   end
