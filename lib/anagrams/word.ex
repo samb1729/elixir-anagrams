@@ -6,6 +6,10 @@ defmodule Anagrams.Word do
     |> word_from_charlist
   end
 
+  def to_string(word) do
+    Kernel.to_string word.chars
+  end
+
   defp word_from_charlist(chars) do
     %__MODULE__{chars: chars, value: value_from_chars(chars)}
   end
