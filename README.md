@@ -1,24 +1,11 @@
 # Anagrams
 
-**TODO: Add description**
+Takes a dictionary and a character-list and spits out all words in the dictionary that can be formed from that character list.
 
-## Installation
+## Usage
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+**TODO: usage
 
-  1. Add `anagrams` to your list of dependencies in `mix.exs`:
+## Running tests
 
-    ```elixir
-    def deps do
-      [{:anagrams, "~> 0.1.0"}]
-    end
-    ```
-
-  2. Ensure `anagrams` is started before your application:
-
-    ```elixir
-    def application do
-      [applications: [:anagrams]]
-    end
-    ```
-
+`$ mix test --no-start`
