@@ -30,21 +30,21 @@ defmodule WordTest do
     assert Word.from_string("abccba").value == 2 * 3 * 5 * 5 * 3 * 2
   end
 
-  test "word can be created from character list" do
-    charlist = Word.from_string("abchelloxyztst")
-    hello = Word.from_string("hello")
-    test = Word.from_string("test")
+  test "word can be created from letters" do
+    letters = "abchelloxyztst"
+    hello = "hello"
+    test = "test"
 
-    assert Word.is_anagram?(hello, charlist)
-    assert Word.is_anagram?(test, charlist)
+    assert Word.is_anagram?(hello, letters)
+    assert Word.is_anagram?(test, letters)
   end
 
-  test "word cannot be created from character list" do
-    charlist = Word.from_string("abchelloxyztst")
-    helloo = Word.from_string("helloo")
-    testt = Word.from_string("testt")
+  test "word cannot be created from letters" do
+    letters = "abchelloxyztst"
+    helloo = "helloo"
+    testt = "testt"
 
-    assert Word.is_anagram?(helloo, charlist) == false
-    assert Word.is_anagram?(testt, charlist) == false
+    assert Word.is_anagram?(helloo, letters) == false
+    assert Word.is_anagram?(testt, letters) == false
   end
 end

@@ -30,6 +30,16 @@ defmodule Anagrams.Word do
     |> Enum.at(char - ?a)
   end
 
+  def is_anagram?(word, charlist)
+  when is_binary(word) do
+    is_anagram?(from_string(word), charlist)
+  end
+
+  def is_anagram?(word, charlist)
+  when is_binary(charlist) do
+    is_anagram?(word, from_string(charlist))
+  end
+
   def is_anagram?(word, charlist) do
     rem(charlist.value, word.value) == 0
   end
